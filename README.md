@@ -44,10 +44,10 @@ A Node.js application that scrapes threads and popular posts from 4chan's **/biz
 ## Installation
 
 ### Clone the Repository
-```shell
+
     git clone https://github.com/yourusername/4chan-biz-scraper.git
     cd 4chan-biz-scraper
-```
+
 ### Environment Setup
 
 Ensure you have the required dependencies installed:
@@ -59,35 +59,35 @@ Ensure you have the required dependencies installed:
 
 #### Install Dependencies
 
-    `npm install`
+    npm install
 
 #### Run the Application
 
-    `node app.js`
+    node app.js
 
 #### Access the Application
 
 Open your web browser and navigate to:
 
-    `http://localhost:3069/`
+    http://localhost:3069/
 
 ### Running with Docker
 
 #### Build and Run the Docker Container
 
-    `docker-compose up --build`
+   `docker-compose up --build`
 
 #### Access the Application
 
 Open your web browser and navigate to:
 
-    `http://localhost:3069/`
+    http://localhost:3069/
 
 #### Stop the Docker Container
 
 Press `Ctrl+C` in the terminal running the Docker container, or run:
 
-    `docker-compose down`
+    docker-compose down
 
 ## Usage
 
