@@ -37,8 +37,8 @@ export async function displayThreads(req, res) {
             ${popularThreads.map(thread => `
                 <li class="thread">
                     <div class="thread-op">
-                        <h3>${thread.subject}</h3>
-                        ${thread.image ? `<img src="${thread.image}" alt="Thread Image" class="thread-image">` : ''}
+                        <h3><a href="https://boards.4channel.org/biz/thread/${thread.id}" target="_blank">${thread.subject}</a></h3>
+                        ${thread.image ? `<a href="https://boards.4channel.org/biz/thread/${thread.id}" target="_blank"><img src="${thread.image}" alt="Thread Image" class="thread-image"></a>` : ''}
                         <p class="thread-comment">${thread.comment}</p>
                         <span class="thread-replies">Replies: ${thread.replies}</span>
                     </div>
@@ -47,9 +47,10 @@ export async function displayThreads(req, res) {
                     <ul class="posts">
                         ${thread.posts.map(post => `
                             <li class="post">
-                                ${post.image ? `<img src="${post.image}" alt="Post Image" class="post-image">` : ''}
+                                ${post.image ? `<a href="https://boards.4channel.org/biz/thread/${thread.id}#p${post.id}" target="_blank"><img src="${post.image}" alt="Post Image" class="post-image"></a>` : ''}
                                 <p>${post.comment}</p>
                                 <span class="post-replies">Replies: ${post.replyCount}</span>
+                                <a href="https://boards.4channel.org/biz/thread/${thread.id}#p${post.id}" target="_blank" class="post-link">View Post</a>
                             </li>
                         `).join('')}
                     </ul>

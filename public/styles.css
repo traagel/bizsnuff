@@ -235,3 +235,31 @@ h2 {
     max-width: 800px;
     margin: 0 auto;
 }
+
+/* Style for the thread titles */
+.thread-op h3 a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+.thread-op h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Style for the "View Post" link */
+.post-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #007acc;
+    text-decoration: none;
+}
+
+.post-link:hover {
+    text-decoration: underline;
+}
+
+/* Optional: Style for post images wrapped in links */
+.post a img.post-image {
+    border: none;
+}

@@ -96,3 +96,100 @@ Press `Ctrl+C` in the terminal running the Docker container, or run:
 3. **View Threads**: Browse through the list of threads that mention your keyword.
 4. **Read Popular Posts**: Under each thread, view the popular posts that have sparked active discussions.
 5. **Navigate Threads**: Click on the thread titles to visit 
+
+## Project Structure
+
+    4chan-biz-scraper/
+    ├── app.js
+    ├── controllers/
+    │   └── threadController.js
+    ├── routes/
+    │   └── index.js
+    ├── services/
+    │   └── fourChanService.js
+    ├── utils/
+    │   └── htmlParser.js
+    ├── public/
+    │   └── styles.css
+    ├── views/
+    │   └── index.html
+    ├── Dockerfile
+    ├── docker-compose.yml
+    ├── package.json
+    └── README.md
+
+- **app.js**: Entry point of the application, sets up the Express server.
+- **controllers/**: Contains controller functions that handle requests and responses.
+- **routes/**: Defines the application routes.
+- **services/**: Contains logic for fetching and processing data from the 4chan API.
+- **utils/**: Utility functions, such as HTML parsing.
+- **public/**: Static assets like CSS files.
+- **views/**: HTML templates for rendering the web pages.
+- **Dockerfile**: Instructions to build the Docker image.
+- **docker-compose.yml**: Configuration for Docker Compose.
+- **package.json**: Node.js project metadata and dependencies.
+
+## Technologies Used
+
+- **Node.js**: JavaScript runtime for server-side programming.
+- **Express.js**: Web framework for Node.js.
+- **node-fetch**: Fetch API implementation for Node.js to make HTTP requests.
+- **node-html-parser**: Fast HTML parser to parse and manipulate HTML content.
+- **Docker**: Containerization platform to run the application in isolated environments.
+- **Docker Compose**: Tool for defining and running multi-container Docker applications.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. **Fork the Repository**: Click on the "Fork" button on the top right to fork this repository.
+2. **Clone Your Fork**: Clone your forked repository to your local machine.
+
+       git clone https://github.com/yourusername/4chan-biz-scraper.git
+
+3. **Create a New Branch**: Create a new branch for your feature or bugfix.
+
+       git checkout -b feature/new-feature
+
+4. **Make Changes**: Implement your feature or bugfix.
+5. **Commit Changes**: Commit your changes with a descriptive message.
+
+       git commit -am 'Add new feature'
+
+6. **Push to Your Fork**:
+
+       git push origin feature/new-feature
+
+7. **Submit a Pull Request**: Go to the original repository and create a new pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+- **Author**: Your Name
+- **Email**: [your.email@example.com](mailto:your.email@example.com)
+- **GitHub**: [yourusername](https://github.com/yourusername)
+
+---
+
+*This project is not affiliated with or endorsed by 4chan. Use this tool responsibly and adhere to 4chan's [terms of service](https://www.4chan.org/terms) and [API rules](https://github.com/4chan/4chan-API).*
+
+## Keywords
+
+- 4chan scraper
+- 4chan API
+- 4chan /biz/ board
+- Node.js web scraper
+- Express.js application
+- Dockerized Node.js app
+- Docker Compose setup
+- Keyword-based thread search
+- Popular posts highlighting
+- Web scraping
+- HTML parsing
+- Image proxying
+- Responsive web design
+- Node.js Docker image
+- Containerized application
