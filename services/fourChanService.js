@@ -47,12 +47,12 @@ export async function fetchThreads(keyword) {
       });
     });
 
-    // Fetch all posts for popular threads
-    for (const thread of popularThreads) {
+    // Fetch all posts for popular threads in parallel
+    await Promise.all(popularThreads.map(async (thread) => {
       const posts = await fetchThreadPosts(thread.id);
       // Exclude the original post (OP) and include posts that have more than 1 reply
       thread.posts = posts.filter(post => post.id !== thread.id && post.replyCount > 1);
-    }
+    }));
 
     return { filteredThreads, popularThreads };
   } catch (error) {

@@ -16,6 +16,7 @@
     "express": "^4.21.1",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.2",
-    "node-html-parser": "^6.1.13"
+    "node-html-parser": "^6.1.13",
+    "bluebird": "^3.7.2"
   }
 }
