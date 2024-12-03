@@ -263,3 +263,15 @@ h2 {
 .post a img.post-image {
     border: none;
 }
+
+/* Styles for the avoid images checkbox */
+.search-form label {
+    display: block;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.search-form input[type="checkbox"] {
+    margin-right: 5px;
+}

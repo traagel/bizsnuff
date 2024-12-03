@@ -1,4 +1,3 @@
-
 # 4chan /biz/ Thread and Post Scraper
 
 A Node.js application that scrapes threads and popular posts from 4chan's **/biz/** board based on user-defined keywords. The application allows users to search for specific topics, displaying threads and their most engaged posts, all within a clean and responsive web interface.
@@ -11,6 +10,7 @@ A Node.js application that scrapes threads and popular posts from 4chan's **/biz
 - **Image Proxying**: Proxies images from 4chan to avoid mixed content issues and potential CORS problems.
 - **Responsive Design**: Mobile-friendly layout for easy viewing on any device.
 - **Dockerized Setup**: Easily run the application using Docker and Docker Compose.
+- **Avoid Loading Images**: A checkbox to avoid loading images, resulting in faster loading times.
 
 ## Table of Contents
 
@@ -93,9 +93,10 @@ Press `Ctrl+C` in the terminal running the Docker container, or run:
 
 1. **Open the Application**: Navigate to `http://localhost:3069/` in your web browser.
 2. **Search for Keywords**: Enter any keyword (e.g., `doge`, `btc`, `eth`) into the search bar and click "Search".
-3. **View Threads**: Browse through the list of threads that mention your keyword.
-4. **Read Popular Posts**: Under each thread, view the popular posts that have sparked active discussions.
-5. **Navigate Threads**: Click on the thread titles to visit 
+3. **Avoid Loading Images**: Check the "Avoid loading images (faster)" checkbox to avoid loading images and experience faster loading times.
+4. **View Threads**: Browse through the list of threads that mention your keyword.
+5. **Read Popular Posts**: Under each thread, view the popular posts that have sparked active discussions.
+6. **Navigate Threads**: Click on the thread titles to visit 
 
 ## Project Structure
 

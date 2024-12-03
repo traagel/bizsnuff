@@ -1,10 +1,10 @@
-// controllers/threadController.js
 import fetch from 'node-fetch';
 import { fetchThreads } from '../services/fourChanService.js';
 
 export async function displayThreads(req, res) {
   // Get the keyword from query parameters or default to an empty string
   const keyword = req.query.keyword || '';
+  const avoidImages = req.query.avoidImages === 'on';
 
   // Fetch threads using the provided keyword
   const { filteredThreads, popularThreads } = await fetchThreads(keyword);
@@ -25,6 +25,10 @@ export async function displayThreads(req, res) {
         <h1>4chan /biz/ Thread Search</h1>
         <form action="/" method="get" class="search-form">
             <input type="text" name="keyword" placeholder="Enter keyword(s)" value="${keyword}" required>
+            <label>
+                <input type="checkbox" name="avoidImages" ${avoidImages ? 'checked' : ''}>
+                Avoid loading images (faster)
+            </label>
             <button type="submit">Search</button>
         </form>
         <div class="popular-keywords">
@@ -38,7 +42,7 @@ export async function displayThreads(req, res) {
                 <li class="thread">
                     <div class="thread-op">
                         <h3><a href="https://boards.4channel.org/biz/thread/${thread.id}" target="_blank">${thread.subject}</a></h3>
-                        ${thread.image ? `<a href="https://boards.4channel.org/biz/thread/${thread.id}" target="_blank"><img src="${thread.image}" alt="Thread Image" class="thread-image"></a>` : ''}
+                        ${!avoidImages && thread.image ? `<a href="https://boards.4channel.org/biz/thread/${thread.id}" target="_blank"><img src="${thread.image}" alt="Thread Image" class="thread-image"></a>` : ''}
                         <p class="thread-comment">${thread.comment}</p>
                         <span class="thread-replies">Replies: ${thread.replies}</span>
                     </div>
@@ -47,7 +51,7 @@ export async function displayThreads(req, res) {
                     <ul class="posts">
                         ${thread.posts.map(post => `
                             <li class="post">
-                                ${post.image ? `<a href="https://boards.4channel.org/biz/thread/${thread.id}#p${post.id}" target="_blank"><img src="${post.image}" alt="Post Image" class="post-image"></a>` : ''}
+                                ${!avoidImages && post.image ? `<a href="https://boards.4channel.org/biz/thread/${thread.id}#p${post.id}" target="_blank"><img src="${post.image}" alt="Post Image" class="post-image"></a>` : ''}
                                 <p>${post.comment}</p>
                                 <span class="post-replies">Replies: ${post.replyCount}</span>
                                 <a href="https://boards.4channel.org/biz/thread/${thread.id}#p${post.id}" target="_blank" class="post-link">View Post</a>
