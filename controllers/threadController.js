@@ -1,13 +1,26 @@
 import fetch from 'node-fetch';
 import { fetchThreads } from '../services/fourChanService.js';
 
+const cache = new Map();
+
 export async function displayThreads(req, res) {
   // Get the keyword from query parameters or default to an empty string
   const keyword = req.query.keyword || '';
   const avoidImages = req.query.avoidImages === 'on';
 
-  // Fetch threads using the provided keyword
-  const { filteredThreads, popularThreads } = await fetchThreads(keyword);
+  // Check if the keyword is in the cache
+  let cachedData = cache.get(keyword);
+  if (cachedData) {
+    console.log(`Cache hit for keyword: ${keyword}`);
+  } else {
+    console.log(`Cache miss for keyword: ${keyword}`);
+    // Fetch threads using the provided keyword
+    cachedData = await fetchThreads(keyword);
+    // Store the fetched data in the cache
+    cache.set(keyword, cachedData);
+  }
+
+  const { filteredThreads, popularThreads } = cachedData;
 
   // List of popular keywords (you can customize this list)
   const popularKeywords = ['doge', 'btc', 'eth', 'crypto', 'stocks'];

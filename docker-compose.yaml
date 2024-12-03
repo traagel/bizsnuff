@@ -1,4 +1,3 @@
-
 version: '3.8'
 
 services:
@@ -6,8 +5,5 @@ services:
     build: .
     ports:
       - "3069:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
