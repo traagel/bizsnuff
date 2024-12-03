@@ -8,16 +8,24 @@ export async function displayThreads(req, res) {
   const keyword = req.query.keyword || '';
   const avoidImages = req.query.avoidImages === 'on';
 
+  console.log(`Received request for keyword: ${keyword}, avoidImages: ${avoidImages}`);
+
   // Check if the keyword is in the cache
   let cachedData = cache.get(keyword);
   if (cachedData) {
     console.log(`Cache hit for keyword: ${keyword}`);
   } else {
     console.log(`Cache miss for keyword: ${keyword}`);
-    // Fetch threads using the provided keyword
-    cachedData = await fetchThreads(keyword);
-    // Store the fetched data in the cache
-    cache.set(keyword, cachedData);
+    try {
+      // Fetch threads using the provided keyword
+      cachedData = await fetchThreads(keyword);
+      // Store the fetched data in the cache
+      cache.set(keyword, cachedData);
+    } catch (error) {
+      console.error(`Error fetching threads for keyword: ${keyword}`, error);
+      res.status(500).send('Error fetching threads');
+      return;
+    }
   }
 
   const { filteredThreads, popularThreads } = cachedData;
@@ -96,7 +104,7 @@ export async function proxyImage(req, res) {
     res.set('Content-Type', 'image/jpeg');
     imageResponse.body.pipe(res);
   } catch (error) {
-    console.error("Error fetching image:", error);
+    console.error(`Error fetching image: ${imageName}`, error);
     res.status(500).send('Error fetching image');
   }
 }
