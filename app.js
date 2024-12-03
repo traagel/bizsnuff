@@ -1,9 +1,12 @@
-// app.js
 import express from 'express';
 import routes from './routes/index.js'; // Include .js extension for ES modules
+import compression from 'compression'; // Add compression middleware
 
 const app = express();
 const PORT = 3000;
+
+// Use compression middleware
+app.use(compression());
 
 // Serve static files for CSS
 app.use(express.static('public'));
