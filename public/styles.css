@@ -1,0 +1,237 @@
+/* public/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #007acc;
+}
+
+.threads {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.thread {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.thread-image {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.thread-details {
+    margin-top: 10px;
+}
+
+.thread-title {
+    font-size: 20px;
+    color: #007acc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.thread-title:hover {
+    text-decoration: underline;
+}
+
+.thread-comment {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+h2 {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    color: #444;
+}
+
+.thread-replies {
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+    display: block;
+}
+
+/* New styles for posts */
+.posts {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.post {
+    background: #fefefe;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+}
+
+.post-image {
+    max-width: 100px;
+    margin-right: 15px;
+    border-radius: 5px;
+    float: left;
+}
+
+.post p {
+    margin: 0;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.post-replies {
+    font-size: 13px;
+    color: #888;
+    margin-top: 10px;
+    clear: both;
+}
+
+/* Clearfix for floating elements */
+.post::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Additional styling for quotes in comments */
+.post p .quotelink,
+.thread-comment .quotelink {
+    color: #006621;
+    text-decoration: none;
+}
+
+.post p .quotelink:hover,
+.thread-comment .quotelink:hover {
+    text-decoration: underline;
+}
+
+.quote {
+    color: #6a5acd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .thread, .post {
+        padding: 10px;
+    }
+
+    .thread-title {
+        font-size: 18px;
+    }
+
+    .thread-comment, .post p {
+        font-size: 14px;
+    }
+
+    .post-image {
+        max-width: 80px;
+        margin-right: 10px;
+    }
+}
+
+
+/* Styles for the search form */
+.search-form {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-form input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #005f99;
+}
+
+/* Styles for popular keywords */
+.popular-keywords {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.popular-keywords p {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.popular-keywords a {
+    color: #007acc;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.popular-keywords a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for the thread OP */
+.thread-op {
+    margin-bottom: 20px;
+}
+
+/* Styles for the "Popular Posts" header */
+.thread h4 {
+    margin: 10px 0;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Adjustments to the thread */
+.thread {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 800px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Center threads */
+.threads {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+/* Center search form and popular keywords */
+.search-form,
+.popular-keywords {
+    max-width: 800px;
+    margin: 0 auto;
+}
