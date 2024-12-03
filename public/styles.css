@@ -266,7 +266,7 @@ h2 {
 
 /* Styles for the avoid images checkbox */
 .search-form label {
-    display: inline-block;
+    display: block;
     margin: 10px 0;
     font-size: 14px;
     color: #333;
