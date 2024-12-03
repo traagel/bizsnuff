@@ -1,4 +1,3 @@
-// services/fourChanService.js
 import fetch from 'node-fetch';
 import { getRepliesTo } from '../utils/htmlParser.js';
 
@@ -7,12 +6,14 @@ const THREAD_BASE_URL = "https://a.4cdn.org/biz/thread/";
 
 export async function fetchThreads(keyword) {
   try {
+    console.log(`Fetching threads with keyword: ${keyword}`);
     const response = await fetch(CATALOG_URL);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const catalog = await response.json();
+    console.log(`Received response for threads with keyword: ${keyword}`);
     const filteredThreads = [];
     const popularThreads = [];
 
@@ -63,12 +64,14 @@ export async function fetchThreads(keyword) {
 export async function fetchThreadPosts(threadId) {
   const threadUrl = `${THREAD_BASE_URL}${threadId}.json`;
   try {
+    console.log(`Fetching posts for thread ID: ${threadId}`);
     const response = await fetch(threadUrl);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const threadData = await response.json();
+    console.log(`Received response for posts in thread ID: ${threadId}`);
     const posts = threadData.posts;
 
     // Map of post numbers to reply counts

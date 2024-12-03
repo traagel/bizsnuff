@@ -1,9 +1,10 @@
-// utils/htmlParser.js
 import { parse } from 'node-html-parser';
 
 export function getRepliesTo(comment) {
   const replies = [];
   const root = parse(comment);
+
+  console.log(`Parsing HTML comment: ${comment}`);
 
   // Find all <a> tags with class "quotelink"
   const quoteLinks = root.querySelectorAll('a.quotelink');
@@ -16,6 +17,8 @@ export function getRepliesTo(comment) {
       }
     }
   });
+
+  console.log(`Found replies: ${replies}`);
 
   return replies;
 }
